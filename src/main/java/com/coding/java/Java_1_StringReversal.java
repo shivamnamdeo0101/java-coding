@@ -263,7 +263,7 @@ class StrReverseValueSwap implements StringReverse{
  * Demonstrates all 8 approaches to reverse a string "Shivam"
  * with their outputs.
  */
-public class StringReversal {
+public class Java_1_StringReversal {
 
     public static void main(String[] args) {
 
