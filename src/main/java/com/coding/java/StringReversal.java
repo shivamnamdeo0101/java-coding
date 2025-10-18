@@ -231,9 +231,36 @@ class StrReverseByStrBuilder implements StringReverse {
 }
 
 /**
+ * ⏱️ Time Complexity → O(n)
+ * 💾 Space Complexity → O(1)
+ */
+
+class StrReverseValueSwap implements StringReverse{
+
+    @Override
+    public void makeReverseStr(String str) {
+        char[] charArr = str.toCharArray();
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right){
+            char temp = charArr[left];
+            charArr[left] = charArr[right];
+            charArr[right] = temp;
+
+            left++;
+            right--;
+
+        }
+
+        String reverse = new String(charArr);
+        System.out.println(reverse);
+    }
+}
+
+/**
  * 🚀 Main Driver Class
  *
- * Demonstrates all 7 approaches to reverse a string "Shivam"
+ * Demonstrates all 8 approaches to reverse a string "Shivam"
  * with their outputs.
  */
 public class StringReversal {
@@ -260,5 +287,9 @@ public class StringReversal {
 
         System.out.println("\n➡️  Using Collections + Stream API:");
         new StrReverseCollectionAPIStream().makeReverseStr("Shivam");
+
+        System.out.println("\n➡️  Using Swap + Char Array:");
+        new StrReverseValueSwap().makeReverseStr("Shivam");
     }
+
 }
