@@ -1,8 +1,70 @@
 package com.coding.java;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
+import java.util.stream.Collectors;
+
 interface StringReverse{
     void makeReverseStr(String str);
 }
+
+
+class StrReverseCollectionAPIStream implements StringReverse{
+
+    @Override
+    public void makeReverseStr(String str) {
+
+        List<Character> chars = str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toList());
+
+        Collections.reverse(chars);
+
+        String reversed = chars.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+
+        System.out.println(reversed);
+    }
+}
+
+class StrReverseStackLIFO implements StringReverse{
+
+    @Override
+    public void makeReverseStr(String str) {
+        Stack<Character> stckk = new Stack<>();
+        for(char c: str.toCharArray()){
+            stckk.push(c);
+        }
+        StringBuilder reverse = new StringBuilder();
+        while (!stckk.isEmpty()){
+            reverse.append(stckk.pop());
+        }
+
+        System.out.println(reverse);
+
+    }
+}
+
+
+class StrReverseRecursion implements StringReverse {
+
+    public String reverse(String str) {
+        if (str.isEmpty()) {
+            return str;
+        } else {
+            return reverse(str.substring(1)) + str.charAt(0);
+        }
+    }
+
+    @Override
+    public void makeReverseStr(String str) {
+        String s = reverse(str);
+        System.out.println(s);
+    }
+}
+
 
 class StrReverseCharArray implements StringReverse{
 
@@ -62,5 +124,14 @@ public class StringReversal {
 
         StrReverseCharArray str4 = new StrReverseCharArray();
         str4.makeReverseStr("Shivam");
+
+        StrReverseRecursion str5 = new StrReverseRecursion();
+        str5.makeReverseStr("Shivam");
+
+        StrReverseStackLIFO str6 = new StrReverseStackLIFO();
+        str6.makeReverseStr("Shivam");
+
+        StrReverseCollectionAPIStream str7 = new StrReverseCollectionAPIStream();
+        str7.makeReverseStr("Shivam");
     }
 }
