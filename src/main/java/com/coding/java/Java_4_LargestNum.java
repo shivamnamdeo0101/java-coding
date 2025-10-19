@@ -18,6 +18,12 @@ class LargestNumStreamCollection implements LargestNum{
         List<Integer> li = Arrays.stream(arr).boxed().toList();
         int maxby = Collections.max(li);
         System.out.println(maxby);
+
+        Arrays.sort(arr);
+        int min = arr[arr.length-1]; // first element after sorting
+        System.out.println("Smallest number is " + min);
+
+
     }
 }
 
