@@ -23,5 +23,12 @@ public class Java_15_Str_Int_Conversion {
         char lower2 = (char)(upper2 + 32);
         System.out.println(lower2); // Output: z
 
+        //| Character | ASCII Value |
+        //| --------- | ----------- |
+        //| `'A'`     | 65          |
+        //| `'Z'`     | 90          |
+        //| `'a'`     | 97          |
+        //| `'z'`     | 122         |
+
     }
 }
