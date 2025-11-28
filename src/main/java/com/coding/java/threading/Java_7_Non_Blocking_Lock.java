@@ -17,7 +17,8 @@ class Dock{
                System.out.println("Loading Truck " + truckName);
                Thread.sleep(2000);
            }catch (InterruptedException e){
-               Thread.interrupted();
+               Thread.currentThread().interrupt();
+               System.out.println("Thread Inerruted" + e);
            }finally {
                lock.unlock();
            }

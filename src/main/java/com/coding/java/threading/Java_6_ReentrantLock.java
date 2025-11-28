@@ -4,6 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 //Scenario (real world): Only one cashier serves a customer at a time. like synchronized
 class Cashier{
     private final ReentrantLock lock = new ReentrantLock();
+    //new ReentrantLock(true); ----FIFO waiting avoid starvation , long waiting for FIRST COMERS
 
     public void serve(String customer){
         //Mutual Exclusion (Mutex) = At a time, only one thread can enter the critical section.
